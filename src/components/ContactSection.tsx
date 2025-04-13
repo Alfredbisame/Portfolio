@@ -8,7 +8,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
   return (
     <section className={`min-h-screen flex items-center justify-center p-8 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 hidden'}`}>
       <div className="max-w-3xl w-full">
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary-500 to-accent-500 text-transparent bg-clip-text">
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r text-center from-primary-500 to-accent-500 text-transparent bg-clip-text">
           Get in Touch
         </h2>
         <div className="bg-gray-50 dark:bg-dark-800 p-8 rounded-2xl">

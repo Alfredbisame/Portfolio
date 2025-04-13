@@ -36,7 +36,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
           <div className="absolute inset-1 rounded-full bg-white dark:bg-dark-900"></div>
           <div className="relative w-full h-full rounded-full overflow-hidden transform group-hover:scale-105 transition-transform duration-500 shadow-lg">
             <img
-              src="src\public\self.jpg"
+              src="/self.jpg"
               alt="Alfred Fianyo"
               className="w-full h-full object-cover"
             />

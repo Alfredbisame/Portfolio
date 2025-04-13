@@ -14,7 +14,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isActive, services })
   return (
     <section className={`min-h-screen p-8 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 hidden'}`}>
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-primary-500 to-accent-500 text-transparent bg-clip-text">
+        <h2 className="text-3xl md:text-5xl font-bold mb-12 bg-gradient-to-r text-center from-primary-500 to-accent-500 text-transparent bg-clip-text">
           Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

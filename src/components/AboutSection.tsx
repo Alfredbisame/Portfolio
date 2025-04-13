@@ -36,7 +36,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isActive, skills, experienc
       }`}
     >
       <div className="max-w-4xl w-full">
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary-500 to-accent-500 text-transparent bg-clip-text">
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r text-center from-primary-500 to-accent-500 text-transparent bg-clip-text">
           About Me
         </h2>
         <p className="text-lg mb-12 leading-relaxed text-gray-700 dark:text-gray-300">
