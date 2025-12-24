@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Download, Github, Linkedin, Mail, Code, Zap, Sparkles } from 'lucide-react';
+import TextType from './TextType';
+import TextPressure from './TextPressure';
+import LiquidChrome from './LiquidChrome';
 
 interface HomeSectionProps {
   isActive: boolean;
@@ -16,18 +19,21 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
 
   return (
     <section 
-      className={`min-h-screen flex items-center justify-center p-8 transition-all duration-700 ${
+      className={`min-h-screen flex items-center justify-center p-8 transition-all duration-700 relative overflow-hidden ${
         isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95 hidden'
       }`}
     >
-      <div className="relative z-10 text-center max-w-4xl">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary-400/10 rounded-full blur-3xl animate-pulse" 
-               style={{ animationDuration: '8s' }}></div>
-          <div className="absolute -bottom-40 -right-20 w-80 h-80 bg-accent-400/10 rounded-full blur-3xl animate-pulse"
-               style={{ animationDuration: '10s' }}></div>
-        </div>
+      {/* LiquidChrome background */}
+      <div className="absolute inset-0 z-0">
+        <LiquidChrome
+          baseColor={[0.04, 0.02, 0.08]}
+          speed={0.3}
+          amplitude={0.5}
+          interactive={true}
+        />
+      </div>
+
+      <div className="relative z-50 text-center max-w-4xl">
         
         {/* Profile image with animated border */}
         <div className="relative w-48 h-48 md:w-48 md:h-52 mx-auto mb-10 group">
@@ -45,29 +51,48 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
         </div>
         
         {/* Name with animated text reveal */}
-        <div className="overflow-hidden mb-4">
-          <h1 
-            className={`text-4xl md:text-7xl font-bold bg-gradient-to-r from-primary-400 via-accent-500 to-primary-500 text-transparent bg-clip-text animate-gradient transform ${
-              loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            } transition-all duration-1000`}
-          >
-            Alfred Fianyo
-          </h1>
+        <div 
+          className={`overflow-hidden mb-4 transform ${
+            loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          } transition-all duration-1000`}
+          style={{ height: '120px' }}
+        >
+          <TextPressure
+            text="Alfred Fianyo"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={false}
+            textColor="transparent"
+            minFontSize={36}
+            className="bg-gradient-to-r from-primary-400 via-accent-500 to-primary-500 text-transparent bg-clip-text animate-gradient"
+          />
         </div>
         
         {/* Title with animated text reveal */}
         <div className="overflow-hidden mb-8">
-          <div className="flex items-center justify-center gap-2">
+          <div 
+            className={`flex items-center justify-center gap-2 ${
+              loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            } transition-all duration-1000 delay-200`}
+          >
             <Sparkles className={`w-5 h-5 text-accent-500 ${
               loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
             } transition-all duration-1000 delay-300`} />
-            <p 
-              className={`text-xl md:text-2xl text-gray-700 dark:text-gray-300 ${
-                loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              } transition-all duration-1000 delay-200`}
-            >
-              Senior Software Engineer
-            </p>
+            <TextType
+              text={[
+                "Senior Software Engineer",
+                "Project Manager"
+              ]}
+              typingSpeed={80}
+              pauseDuration={2000}
+              showCursor={true}
+              cursorCharacter="|"
+              loop={true}
+              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300"
+            />
             <Sparkles className={`w-5 h-5 text-accent-500 ${
               loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
             } transition-all duration-1000 delay-300`} />
@@ -117,7 +142,19 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
             loaded ? 'opacity-100' : 'opacity-0'
           } transition-opacity duration-1000 delay-1000`}
         >
-          <p className="typewriter-text">Building innovative solutions with modern technologies</p>
+          <TextType 
+            text={[
+              "Building innovative solutions with modern technologies",
+              "Creating seamless user experiences",
+              "Transforming ideas into reality"
+            ]}
+            typingSpeed={75}
+            pauseDuration={1500}
+            showCursor={true}
+            cursorCharacter="|"
+            loop={true}
+            className="text-sm"
+          />
         </div>
       </div>
     </section>
