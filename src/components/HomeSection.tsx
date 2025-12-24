@@ -33,7 +33,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
         />
       </div>
 
-      <div className="relative z-10 text-center max-w-4xl">
+      <div className="relative z-50 text-center max-w-4xl">
         
         {/* Profile image with animated border */}
         <div className="relative w-48 h-48 md:w-48 md:h-52 mx-auto mb-10 group">
