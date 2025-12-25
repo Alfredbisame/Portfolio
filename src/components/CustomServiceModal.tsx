@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, User, Mail, MessageSquare, CheckCircle, Sparkles } from 'lucide-react';
+import { X, Send, User, Phone, MessageSquare, CheckCircle, Sparkles } from 'lucide-react';
 
 interface CustomServiceModalProps {
   isOpen: boolean;
@@ -10,7 +10,7 @@ interface CustomServiceModalProps {
 const CustomServiceModal: React.FC<CustomServiceModalProps> = ({ isOpen, onClose }) => {
   const [formState, setFormState] = useState({
     name: '',
-    email: '',
+    phone: '',
     serviceType: '',
     description: '',
     budget: '',
@@ -26,23 +26,82 @@ const CustomServiceModal: React.FC<CustomServiceModalProps> = ({ isOpen, onClose
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
+    
+    // Format service type for display
+    const getServiceTypeLabel = (value: string) => {
+      const labels: { [key: string]: string } = {
+        'web-development': 'Web Development',
+        'mobile-development': 'Mobile Development',
+        'cloud-architecture': 'Cloud Architecture',
+        'consultation': 'Technical Consultation',
+        'other': 'Other'
+      };
+      return labels[value] || value;
+    };
+
+    // Format budget for display
+    const getBudgetLabel = (value: string) => {
+      const labels: { [key: string]: string } = {
+        'under-5k': 'Under $5,000',
+        '5k-10k': '$5,000 - $10,000',
+        '10k-25k': '$10,000 - $25,000',
+        '25k-50k': '$25,000 - $50,000',
+        '50k-plus': '$50,000+'
+      };
+      return labels[value] || value || 'Not specified';
+    };
+
+    // Format timeline for display
+    const getTimelineLabel = (value: string) => {
+      const labels: { [key: string]: string } = {
+        'asap': 'ASAP',
+        '1-month': '1 Month',
+        '2-3-months': '2-3 Months',
+        '3-6-months': '3-6 Months',
+        '6-plus-months': '6+ Months'
+      };
+      return labels[value] || value || 'Not specified';
+    };
+
+    // Format message for WhatsApp
+    const whatsappMessage = `*Custom Service Request*
+
+*Name:* ${formState.name}
+*Phone:* ${formState.phone}
+*Service Type:* ${getServiceTypeLabel(formState.serviceType)}
+*Budget:* ${getBudgetLabel(formState.budget)}
+*Timeline:* ${getTimelineLabel(formState.timeline)}
+
+*Project Description:*
+${formState.description}
+
+---
+This message was sent from my portfolio website.`;
+
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappNumber = '233554572904';
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new window/tab
+    window.open(whatsappUrl, '_blank');
+
+    // Show success state
+    setIsSubmitted(true);
+    
+    // Reset form and close after 3 seconds
     setTimeout(() => {
-      setIsSubmitted(true);
-      // Reset form and close after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormState({
-          name: '',
-          email: '',
-          serviceType: '',
-          description: '',
-          budget: '',
-          timeline: '',
-        });
-        onClose();
-      }, 3000);
-    }, 1000);
+      setIsSubmitted(false);
+      setFormState({
+        name: '',
+        phone: '',
+        serviceType: '',
+        description: '',
+        budget: '',
+        timeline: '',
+      });
+      onClose();
+    }, 3000);
   };
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -194,7 +253,7 @@ const CustomServiceModal: React.FC<CustomServiceModalProps> = ({ isOpen, onClose
                         Request Submitted!
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-center max-w-md">
-                        Thank you for your interest. We'll review your request and get back to you within 24 hours.
+                        Your request has been sent to WhatsApp. We'll get back to you as soon as possible!
                       </p>
                     </motion.div>
                   ) : (
@@ -239,29 +298,29 @@ const CustomServiceModal: React.FC<CustomServiceModalProps> = ({ isOpen, onClose
                         </div>
                       </motion.div>
 
-                      {/* Email Field */}
+                      {/* Phone Number Field */}
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.25, type: "spring", stiffness: 200, damping: 20 }}
                       >
                         <label className="text-sm font-medium mb-2 flex items-center">
-                          <Mail className="w-4 h-4 mr-2 text-primary-500" />
-                          Email
+                          <Phone className="w-4 h-4 mr-2 text-primary-500" />
+                          Phone Number
                         </label>
-                        <div className={`relative transition-all duration-300 ${activeField === 'email' ? 'scale-[1.01]' : ''}`}>
+                        <div className={`relative transition-all duration-300 ${activeField === 'phone' ? 'scale-[1.01]' : ''}`}>
                           <input
-                            type="email"
-                            name="email"
-                            value={formState.email}
+                            type="tel"
+                            name="phone"
+                            value={formState.phone}
                             onChange={handleChange}
-                            onFocus={() => setActiveField('email')}
+                            onFocus={() => setActiveField('phone')}
                             onBlur={() => setActiveField(null)}
                             className="w-full px-4 py-3 rounded-lg bg-white dark:bg-dark-700 border border-gray-300 dark:border-gray-600 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
-                            placeholder="your@email.com"
+                            placeholder="+1234567890"
                             required
                           />
-                          {activeField === 'email' && (
+                          {activeField === 'phone' && (
                             <motion.span
                               className="absolute inset-0 -z-10 rounded-lg bg-primary-500/5 blur-sm"
                               initial={{ opacity: 0 }}
