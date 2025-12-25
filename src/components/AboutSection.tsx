@@ -56,9 +56,9 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isActive, skills, experienc
         <p className="text-lg mb-12 leading-relaxed text-gray-700 dark:text-gray-300">
           <DecryptedText
             text="Results-driven Software Engineer and Project Manager with 4 years of professional experience in full-stack development and project leadership. Expert in building scalable mobile applications (Flutter & React Native) and modern web applications. Proven ability to lead cross-functional teams, deliver high-quality products on time, and drive technical excellence. Seeking a software engineering role where I can contribute hands-on development and strategic leadership in a dynamic environment."
-            animateOn="view"
-            speed={30}
-            maxIterations={15}
+            animateOn="both"
+            speed={120}
+            maxIterations={25}
             revealDirection="start"
             className="text-gray-700 dark:text-gray-300"
             encryptedClassName="text-primary-500/50"
