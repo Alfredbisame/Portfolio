@@ -83,7 +83,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
             } transition-all duration-1000 delay-300`} />
             <TextType
               text={[
-                "Senior Software Engineer",
+                "Software Engineer",
                 "Project Manager"
               ]}
               typingSpeed={80}
