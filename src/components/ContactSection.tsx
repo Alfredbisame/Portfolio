@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Mail, User, MessageSquare, CheckCircle, Github, Linkedin, Phone } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
+import { useContactForm } from './useContactForm';
 
 interface ContactSectionProps {
   isActive: boolean;
 }
 
 const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
-  const [formState, setFormState] = useState({
-    name: '',
-    phone: '',
-    message: '',
-  });
-  const [activeField, setActiveField] = useState<string | null>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const {
+    formState,
+    activeField,
+    isSubmitted,
+    handleChange,
+    handleSubmit,
+    setActiveField,
+  } = useContactForm();
+  
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -25,24 +28,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
       setIsInView(false);
     }
   }, [isActive]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormState(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitted(true);
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormState({ name: '', phone: '', message: '' });
-      }, 3000);
-    }, 1000);
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -122,7 +122,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isActive, skills, experienc
             I deeply value collaboration, creativity, and continuous learning. I believe great software is built by empowered teams who challenge each other to grow and innovate.
           </p>
           <p>
-            Outside of coding, I enjoy hiking, playing guitar, and exploring indie games. I’m also an avid reader and love diving into sci-fi novels and productivity books.
+            Beyond my professional work, I'm passionate about staying at the forefront of technology. I regularly dive into tech reviews and hardware comparisons, explore AI and machine learning advancements, and tinker with embedded systems and IoT projects. I also enjoy troubleshooting complex technical issues—there's something satisfying about solving problems and understanding how things work under the hood.
           </p>
         </div>
       </div>
