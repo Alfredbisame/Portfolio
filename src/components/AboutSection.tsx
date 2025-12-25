@@ -2,6 +2,8 @@ import React from 'react';
 import SkillBar from './SkillBar';
 import ExperienceCard from './ExperienceCard';
 import { GraduationCap, Heart } from 'lucide-react';
+import RotatingText from './RotatingText';
+import DecryptedText from './DecryptedText';
 
 interface Skill {
   name: string;
@@ -36,12 +38,31 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isActive, skills, experienc
       }`}
     >
       <div className="max-w-4xl w-full">
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r text-center from-primary-500 to-accent-500 text-transparent bg-clip-text">
-          About Me
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center flex items-center justify-center gap-2">
+          <span className="bg-gradient-to-r from-primary-500 to-accent-500 text-transparent bg-clip-text">About</span>
+          <RotatingText
+            texts={['Alfred', 'Fianyo']}
+            mainClassName="overflow-hidden text-primary-500 dark:text-primary-400"
+            staggerFrom="last"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2500}
+          />
         </h2>
         <p className="text-lg mb-12 leading-relaxed text-gray-700 dark:text-gray-300">
-          I'm a passionate software engineer with over 8 years of experience in building modern, scalable applications.
-          My expertise spans across full-stack development, cloud architecture, and team leadership. I thrive on solving complex technical challenges and mentoring fellow developers.
+          <DecryptedText
+            text="Results-driven Software Engineer and Project Manager with 4 years of professional experience in full-stack development and project leadership. Expert in building scalable mobile applications (Flutter & React Native) and modern web applications. Proven ability to lead cross-functional teams, deliver high-quality products on time, and drive technical excellence. Seeking a software engineering role where I can contribute hands-on development and strategic leadership in a dynamic environment."
+            animateOn="both"
+            speed={120}
+            maxIterations={25}
+            revealDirection="start"
+            className="text-gray-700 dark:text-gray-300"
+            encryptedClassName="text-primary-500/50"
+          />
         </p>
 
         {/* Skills Section */}

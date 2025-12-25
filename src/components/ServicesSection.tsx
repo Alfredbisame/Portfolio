@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Cloud, Lightbulb, Smartphone, Users, Zap } from 'lucide-react';
+import CustomServiceModal from './CustomServiceModal';
 
 interface Service {
   title: string;
@@ -15,6 +16,7 @@ interface ServicesSectionProps {
 const ServicesSection: React.FC<ServicesSectionProps> = ({ isActive, services }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isInView, setIsInView] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (isActive) {
@@ -146,7 +148,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isActive, services })
                   
                   <div className="mt-4 flex justify-between items-center">
                     <span className="text-primary-500 dark:text-primary-400 font-medium text-sm">Learn more</span>
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center bg-primary-500/10 text-primary-500 dark:text-primary-400 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center bg-primary-500/10 text-primary-500 dark:text-primary-400 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300 cursor-pointer">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
@@ -173,13 +175,21 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isActive, services })
           transition={{ delay: 0.6, duration: 0.5 }}
           className="mt-20 text-center"
         >
-          <button className="px-8 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-primary-500/20 transition-all duration-300 transform hover:translate-y-[-2px]">
+          <motion.button
+            onClick={() => setIsModalOpen(true)}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-primary-500/20 transition-all duration-300"
+          >
             Request Custom Service
-          </button>
+          </motion.button>
           <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
             Need something specific? Let's discuss your unique requirements
           </p>
         </motion.div>
+        
+        {/* Custom Service Modal */}
+        <CustomServiceModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
       
       {/* Decorative elements */}

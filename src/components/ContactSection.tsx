@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Mail, User, MessageSquare, CheckCircle, Github, Linkedin } from 'lucide-react';
+import { Send, Mail, User, MessageSquare, CheckCircle, Github, Linkedin, Phone } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
 
 interface ContactSectionProps {
@@ -10,7 +10,7 @@ interface ContactSectionProps {
 const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
   const [formState, setFormState] = useState({
     name: '',
-    email: '',
+    phone: '',
     message: '',
   });
   const [activeField, setActiveField] = useState<string | null>(null);
@@ -39,7 +39,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
       // Reset form after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormState({ name: '', email: '', message: '' });
+        setFormState({ name: '', phone: '', message: '' });
       }, 3000);
     }, 1000);
   };
@@ -149,22 +149,22 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isActive }) => {
 
                     <motion.div variants={itemVariants}>
                       <label className="text-sm font-medium mb-2 flex items-center">
-                        <Mail className="w-4 h-4 mr-2 text-primary-500" />
-                        Email
+                        <Phone className="w-4 h-4 mr-2 text-primary-500" />
+                        Phone Number
                       </label>
-                      <div className={`relative transition-all duration-300 ${activeField === 'email' ? 'scale-[1.02]' : ''}`}>
+                      <div className={`relative transition-all duration-300 ${activeField === 'phone' ? 'scale-[1.02]' : ''}`}>
                         <input
-                          type="email"
-                          name="email"
-                          value={formState.email}
+                          type="tel"
+                          name="phone"
+                          value={formState.phone}
                           onChange={handleChange}
-                          onFocus={() => setActiveField('email')}
+                          onFocus={() => setActiveField('phone')}
                           onBlur={() => setActiveField(null)}
                           className="w-full px-4 py-4 rounded-lg bg-white dark:bg-dark-700 border border-gray-300 dark:border-gray-600 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
-                          placeholder="your@email.com"
+                          placeholder="+1234567890"
                           required
                         />
-                        {activeField === 'email' && (
+                        {activeField === 'phone' && (
                           <motion.span 
                             className="absolute inset-0 -z-10 rounded-lg bg-primary-500/5 blur-sm"
                             initial={{ opacity: 0 }}

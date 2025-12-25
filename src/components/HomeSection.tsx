@@ -3,6 +3,7 @@ import { Download, Github, Linkedin, Mail, Code, Zap, Sparkles } from 'lucide-re
 import TextType from './TextType';
 import TextPressure from './TextPressure';
 import LiquidChrome from './LiquidChrome';
+import TiltedCard from './TiltedCard';
 
 interface HomeSectionProps {
   isActive: boolean;
@@ -35,19 +36,22 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
 
       <div className="relative z-50 text-center max-w-4xl">
         
-        {/* Profile image with animated border */}
-        <div className="relative w-48 h-48 md:w-48 md:h-52 mx-auto mb-10 group">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400 via-accent-500 to-primary-600 animate-spin opacity-70"
-               style={{ animationDuration: '8s' }}></div>
-          <div className="absolute inset-1 rounded-full bg-white dark:bg-dark-900"></div>
-          <div className="relative w-full h-full rounded-full overflow-hidden transform group-hover:scale-105 transition-transform duration-500 shadow-lg">
-            <img
-              src="/self.jpg"
-              alt="Alfred Fianyo"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </div>
+        {/* Profile image with tilted card effect */}
+        <div className="flex justify-center mx-auto mb-10">
+          <TiltedCard
+            imageSrc="/self.jpg"
+            altText="Alfred Fianyo"
+            captionText="Alfred Fianyo"
+            containerHeight="220px"
+            containerWidth="220px"
+            imageHeight="200px"
+            imageWidth="200px"
+            rotateAmplitude={12}
+            scaleOnHover={1.1}
+            showMobileWarning={false}
+            showTooltip={true}
+            displayOverlayContent={false}
+          />
         </div>
         
         {/* Name with animated text reveal */}
@@ -83,7 +87,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ isActive }) => {
             } transition-all duration-1000 delay-300`} />
             <TextType
               text={[
-                "Senior Software Engineer",
+                "Software Engineer",
                 "Project Manager"
               ]}
               typingSpeed={80}
