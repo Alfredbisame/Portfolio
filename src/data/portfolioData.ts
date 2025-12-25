@@ -14,7 +14,7 @@ export interface Experience {
 export interface Project {
   title: string;
   description: string;
-  image: string;
+  images: string[];
   tech: string[];
   url?: string;
 }
@@ -81,35 +81,60 @@ export const projects: Project[] = [
   {
     title: 'Bisame Mobile App(Android)',
     description: 'Single-handedly planned, architected, and developed a high-performance cross-platform mobile app using Flutter, implementing clean architecture and best engineering practices. Designed a modern, intuitive UI/UX that significantly increased app installs and user retention. Implemented state management with Flutter Bloc and oversaw full backend implementation and integration from scratch to deployment.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500',
+    images: [
+      'https://i.postimg.cc/TPk87ztN/playstore-1.jpg',
+      'https://i.postimg.cc/CxPJWwVF/playstore-4-C.jpg',
+      'https://i.postimg.cc/50c5V0KH/playstore-6.jpg',
+      'https://i.postimg.cc/FzTJ7spy/playstore-4.jpg',
+    ],
     tech: ['Flutter', 'Dart', 'Flutter Bloc', 'REST API', 'Clean Architecture'],
     url: 'https://play.google.com/store/apps/details?id=com.bisame.bisame', 
   },
   {
     title: 'Bisame Mobile App(iOS)',
     description: 'Single-handedly planned, architected, and developed a high-performance cross-platform mobile app using Flutter, implementing clean architecture and best engineering practices. Designed a modern, intuitive UI/UX that significantly increased app installs and user retention. Implemented state management with Flutter Bloc and oversaw full backend implementation and integration from scratch to deployment.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500',
+    images: [
+      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500',
+    ],
     tech: ['Flutter', 'Dart', 'Flutter Bloc', 'REST API', 'Clean Architecture'],
     url: 'https://apps.apple.com/us/app/bisame/id6459306016', 
   },
   {
     title: 'Bisame Web Application',
     description: 'Developed a high-performance web application using Next.js on the frontend and integrated a custom NestJS backend API from scratch. Implemented real-time features with Socket.io and secure social authentication (Google & Apple Sign-In) across both web and mobile platforms. Delivered a modern, responsive UI/UX that contributed to increased user engagement and retention.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500',
+    images: [
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=500',
+    ],
     tech: ['Next.js', 'NestJS', 'Socket.io', 'TypeScript', 'Social Auth'],
     url: 'https://bisame.com',
   },
   {
     title: 'Comprehensive School Management System',
     description: 'Developed a premium Management Information System (MIS) using Next.js and a MySQL database, streamlining operations for students, parents, teachers, and administrators. Key features included comprehensive management of student, parent, and teacher profiles, automated timetable generation, and real-time fee tracking, all supported by interactive dashboards for data visualization and detailed reporting.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500',
+    images: [
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500',
+    ],
     tech: ['Next.js', 'MySQL', 'Next Auth', 'bcrypt', 'Data Visualization'],
     url: 'https://github.com', 
   },
   {
     title: 'Logistics Management System',
     description: 'Developed a comprehensive logistics management system featuring a public website for service viewing and shipment tracking, alongside an administrative dashboard for portfolio and service management, utilizing React.js and Node.js with Express.js. Implemented a secure backend API for data exchange and a robust user authentication system using bcrypt.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=500',
+    images: [
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500',
+      'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500',
+    ],
     tech: ['React.js', 'Node.js', 'Express.js', 'bcrypt', 'REST API'],
     url: 'https://github.com',
   },
