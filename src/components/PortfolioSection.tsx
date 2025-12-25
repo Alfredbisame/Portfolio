@@ -1,77 +1,17 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  tech: string[];
-  url?: string;
-}
+import { Project } from '../data/portfolioData';
 
 interface PortfolioSectionProps {
   isActive: boolean;
   projects: Project[];
 }
 
-const defaultProjects: Project[] = [
-  {
-    title: 'DevSync Platform',
-    description:
-      'A real-time collaboration platform for developers to code, review, and deploy from one unified dashboard. Integrated with GitHub and CI/CD pipelines.',
-    image: '/devsync.jpeg',
-    tech: ['React', 'Node.js', 'Socket.IO', 'MongoDB', 'TailwindCSS'],
-    url: 'https://devsync.app',
-  },
-  {
-    title: 'FitFlex App',
-    description:
-      'A fitness tracking mobile app that helps users build workout routines, track macros, and sync progress with wearables.',
-    image: '/fitflex.jpeg',
-    tech: ['React Native', 'Firebase', 'Expo', 'GraphQL'],
-    url: 'https://fitflex.io',
-  },
-  {
-    title: 'Ecomly E-commerce',
-    description:
-      'A full-featured e-commerce site with real-time inventory, payment integration, and an admin dashboard for order and product management.',
-    image: '/ecomly.jpeg',
-    tech: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
-    url: 'https://ecomly.store',
-  },
-  {
-    title: 'Portfolio v3',
-    description:
-      'My latest personal portfolio built with modern tools and animations, showcasing my work and technical writing.',
-    image: '/portfolio.jpeg',
-    tech: ['Next.js', 'Framer Motion', 'TailwindCSS', 'TypeScript'],
-    url: 'https://myportfolio.dev',
-  },
-  {
-    title: 'EduMind LMS',
-    description:
-      'A learning management system designed for online instructors to manage classes, quizzes, and student analytics.',
-    image: '/edumind.jpeg',
-    tech: ['Django', 'React', 'Redis', 'Docker'],
-    url: 'https://edumind.io',
-  },
-  {
-    title: 'TaskForge',
-    description:
-      'A productivity app for managing projects, sprints, and team communication using Kanban boards and smart notifications.',
-    image: '/taskforge.png',
-    tech: ['Vue.js', 'Node.js', 'MySQL', 'Tailwind'],
-    url: 'https://taskforge.app',
-  },
-];
-
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   isActive,
-  projects = defaultProjects,
+  projects,
 }) => {
-  // Force all projects to be visible
-  const displayProjects = [...defaultProjects];
   
   return (
     <section
@@ -85,7 +25,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
         </h2>
         
         <div className="flex flex-wrap -mx-4">
-          {displayProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <div key={index} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
               <motion.div
                 className="h-full group bg-gray-50 dark:bg-dark-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"

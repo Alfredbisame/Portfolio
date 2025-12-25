@@ -16,6 +16,7 @@ export interface Project {
   description: string;
   image: string;
   tech: string[];
+  url?: string;
 }
 
 export interface Service {
@@ -78,28 +79,39 @@ export const experiences: Experience[] = [
 // Projects Portfolio
 export const projects: Project[] = [
   {
-    title: 'Bisame Mobile App',
+    title: 'Bisame Mobile App(Android)',
     description: 'Single-handedly planned, architected, and developed a high-performance cross-platform mobile app using Flutter, implementing clean architecture and best engineering practices. Designed a modern, intuitive UI/UX that significantly increased app installs and user retention. Implemented state management with Flutter Bloc and oversaw full backend implementation and integration from scratch to deployment.',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500',
     tech: ['Flutter', 'Dart', 'Flutter Bloc', 'REST API', 'Clean Architecture'],
+    url: 'https://play.google.com/store/apps/details?id=com.bisame.bisame', 
+  },
+  {
+    title: 'Bisame Mobile App(iOS)',
+    description: 'Single-handedly planned, architected, and developed a high-performance cross-platform mobile app using Flutter, implementing clean architecture and best engineering practices. Designed a modern, intuitive UI/UX that significantly increased app installs and user retention. Implemented state management with Flutter Bloc and oversaw full backend implementation and integration from scratch to deployment.',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500',
+    tech: ['Flutter', 'Dart', 'Flutter Bloc', 'REST API', 'Clean Architecture'],
+    url: 'https://apps.apple.com/us/app/bisame/id6459306016', 
   },
   {
     title: 'Bisame Web Application',
     description: 'Developed a high-performance web application using Next.js on the frontend and integrated a custom NestJS backend API from scratch. Implemented real-time features with Socket.io and secure social authentication (Google & Apple Sign-In) across both web and mobile platforms. Delivered a modern, responsive UI/UX that contributed to increased user engagement and retention.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500',
     tech: ['Next.js', 'NestJS', 'Socket.io', 'TypeScript', 'Social Auth'],
+    url: 'https://bisame.com',
   },
   {
     title: 'Comprehensive School Management System',
     description: 'Developed a premium Management Information System (MIS) using Next.js and a MySQL database, streamlining operations for students, parents, teachers, and administrators. Key features included comprehensive management of student, parent, and teacher profiles, automated timetable generation, and real-time fee tracking, all supported by interactive dashboards for data visualization and detailed reporting.',
     image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500',
     tech: ['Next.js', 'MySQL', 'Next Auth', 'bcrypt', 'Data Visualization'],
+    url: 'https://github.com', 
   },
   {
     title: 'Logistics Management System',
     description: 'Developed a comprehensive logistics management system featuring a public website for service viewing and shipment tracking, alongside an administrative dashboard for portfolio and service management, utilizing React.js and Node.js with Express.js. Implemented a secure backend API for data exchange and a robust user authentication system using bcrypt.',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=500',
     tech: ['React.js', 'Node.js', 'Express.js', 'bcrypt', 'REST API'],
+    url: 'https://github.com',
   },
 ];
 
