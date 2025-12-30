@@ -115,16 +115,15 @@ export const projects: Project[] = [
     url: 'https://bisame.com',
   },
   {
-    title: 'Comprehensive School Management System',
-    description: 'Developed a premium Management Information System (MIS) using Next.js and a MySQL database, streamlining operations for students, parents, teachers, and administrators. Key features included comprehensive management of student, parent, and teacher profiles, automated timetable generation, and real-time fee tracking, all supported by interactive dashboards for data visualization and detailed reporting.',
+    title: 'Comprehensive School Management System Dashboard',
+    description: 'Architected and developed a premium Management Information System (MIS) dashboard using Next.js with Next.js Server Actions and a MySQL database, streamlining operations for students, parents, teachers, and administrators. Implemented comprehensive user management with role-based access control, automated timetable generation with conflict resolution, and real-time fee collection and tracking. Delivered interactive data visualization dashboards and customizable reporting systems that provide actionable insights for performance, efficiency, and financial analytics, significantly enhancing operational transparency and data-driven decision-making.',
     images: [
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500',
-      'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500',
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=500',
-      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500',
+      'https://i.postimg.cc/g2gW2pzL/skul.png',
+      'https://i.postimg.cc/sDVS8DXR/Screenshot-2025-12-30-201331.png',
+      'https://i.postimg.cc/KzPkqdSw/Screenshot-2025-12-30-201358.png',
     ],
-    tech: ['Next.js', 'MySQL', 'Next Auth', 'bcrypt', 'Data Visualization'],
-    url: 'https://github.com', 
+    tech: ['Next.js', 'Next.js Server Actions', 'MySQL', 'NextAuth', 'bcrypt', 'Data Visualization'],
+    url: 'https://school-management-system-kappa-eight.vercel.app/',
   },
   {
     title: 'Logistics Management System',
@@ -137,6 +136,54 @@ export const projects: Project[] = [
     ],
     tech: ['React.js', 'Node.js', 'Express.js', 'bcrypt', 'REST API'],
     url: 'https://github.com',
+  },
+  {
+    title: 'Modern School MIS Landing WebApp',
+    description: 'Architected and developed a futuristic, clean-design landing web application using Next.js and TypeScript with a MySQL database backend. Successfully integrated PayStack payment gateway for seamless transaction processing and implemented robust server-side logic using Next.js Server Actions. Delivered a fully responsive, modern UI/UX with Tailwind CSS that ensures optimal user experience across all devices and screen sizes.',
+    images: [
+      'https://i.postimg.cc/rwxcSr4C/lndpg.png',
+      'https://i.postimg.cc/3RS0p2XK/Screenshot-2025-12-30-195721.png',
+      'https://i.postimg.cc/7Z9zwv5y/Screenshot-2025-12-30-200055.png',
+      'https://i.postimg.cc/7LpZyXnT/Screenshot-2025-12-30-200318.png',
+    ],
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js Server Actions', 'PayStack API', 'MySQL'],
+    url: 'https://landing-page-7xvz.vercel.app/',
+  },
+  {
+    title: 'SmartyBet Progressive Web Application',
+    description: 'Developed a high-performance Progressive Web Application (PWA) for betting using Next.js and Tailwind CSS, complemented by advanced CSS3 styling for a modern, clean user interface. Implemented sophisticated skeleton loading animations to significantly enhance user experience and improve perceived performance, creating a seamless and responsive interaction flow. Delivered a fully responsive, user-centric application that leverages contemporary web development technologies and PWA capabilities for optimal cross-device functionality and offline accessibility.',
+    images: [
+      'https://i.postimg.cc/VNTpGVWy/Screenshot-2025-12-30-202021.png',
+      'https://i.postimg.cc/76kMZ1xY/Screenshot-2025-12-30-202214.png',
+      'https://i.postimg.cc/SxYWL1Rj/Screenshot-2025-12-30-202237.png',
+    ],
+    tech: ['Next.js', 'Tailwind CSS', 'CSS3', 'PWA', 'Skeleton Loading'],
+    url: 'https://smartybet.vercel.app/',
+  },
+  {
+    title: 'Wellcob Mortgage & Real Estate Platform',
+    description: 'Developed a comprehensive full-stack mortgage and real estate platform as a Full-Stack Software Engineer, utilizing HTML, CSS, Bootstrap, and ES6+ JavaScript on the frontend with Node.js and MySQL on the backend. Implemented secure signup and sign-in authentication systems to ensure user privacy and data security. Designed and developed an intuitive admin dashboard for efficient platform management and oversight. Enabled real estate agents to seamlessly post, update, and manage property listings with a user-friendly interface. Delivered a scalable, industry-tailored solution that streamlines real estate operations and enhances user experience for both agents and clients.',
+    images: [
+      'https://i.postimg.cc/rsSSXD6t/Screenshot-2025-12-30-203852.png',
+      'https://i.postimg.cc/P561jGcn/Screenshot-2025-12-30-203919.png',
+      'https://i.postimg.cc/FzgJCwcg/Screenshot-2025-12-30-204020.png',
+      'https://i.postimg.cc/4x3hwL34/Screenshot-2025-12-30-204113.png',
+    ],
+    tech: ['HTML', 'CSS', 'Bootstrap', 'ES6+ JavaScript', 'Node.js', 'MySQL', 'Authentication'],
+    url: 'https://wellcob.com/',
+  },
+  {
+    title: 'All Service Pro Mobile App',
+    description: 'Developed a comprehensive Flutter mobile application for service providers to list and manage their services, enabling clients to discover, contact, and communicate with providers seamlessly. Implemented robust state management and navigation using GetX, ensuring efficient app performance and smooth user experience. Integrated real-time chat functionality and native call features to facilitate direct communication between service providers and clients. Designed an intuitive user interface that streamlines service discovery and booking processes. Delivered a scalable, user-centric solution that connects service providers with potential clients effectively.',
+    images: [
+      'https://i.postimg.cc/K8zhzL0C/Whats-App-Image-2025-12-30-at-8-51-54-PM-(1).jpg',
+      'https://i.postimg.cc/YCm8bC0h/Whats-App-Image-2025-12-30-at-8-51-54-PM.jpg',
+      'https://i.postimg.cc/3R9ZdyfR/Whats-App-Image-2025-12-30-at-8-51-55-PM-(1).jpg',
+      'https://i.postimg.cc/BQjCnnxc/Whats-App-Image-2025-12-30-at-8-51-55-PM.jpg',
+      'https://i.postimg.cc/nh7YqSSW/Whats-App-Image-2025-12-30-at-8-51-56-PM.jpg',
+    ],
+    tech: ['Flutter', 'Dart', 'GetX', 'State Management', 'Real-time Chat', 'Call Integration'],
+    url: '',
   },
 ];
 
