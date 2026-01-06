@@ -449,7 +449,11 @@ class App {
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
-    this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);
+    const canvas = this.renderer.gl.canvas as HTMLCanvasElement;
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.display = 'block';
+    this.container.appendChild(canvas);
   }
 
   createCamera() {
@@ -664,20 +668,46 @@ export default function CircularGallery({
   scrollEase = 0.05
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const appRef = useRef<App | null>(null);
+  
   useEffect(() => {
     if (!containerRef.current) return;
-    const app = new App(containerRef.current, {
-      items,
-      bend,
-      textColor,
-      borderRadius,
-      font,
-      scrollSpeed,
-      scrollEase
-    });
+    
+    // Wait for container to be visible and have dimensions
+    const initApp = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) {
+        // Container not visible yet, try again on next frame
+        requestAnimationFrame(initApp);
+        return;
+      }
+      
+      // Container is visible, initialize WebGL
+      if (!appRef.current) {
+        appRef.current = new App(containerRef.current, {
+          items,
+          bend,
+          textColor,
+          borderRadius,
+          font,
+          scrollSpeed,
+          scrollEase
+        });
+      }
+    };
+    
+    // Small delay to ensure DOM is ready
+    const timeoutId = setTimeout(initApp, 100);
+    
     return () => {
-      app.destroy();
+      clearTimeout(timeoutId);
+      if (appRef.current) {
+        appRef.current.destroy();
+        appRef.current = null;
+      }
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
-  return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;
+  
+  return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" style={{ width: '100%', height: '100%' }} ref={containerRef} />;
 }

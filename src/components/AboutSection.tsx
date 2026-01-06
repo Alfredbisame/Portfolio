@@ -125,8 +125,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({
           <>
             <h3 className="text-2xl font-semibold mb-6">Project Certificates Gallery</h3>
             <div className="mb-16 rounded-3xl border border-white/10 bg-gradient-to-br from-dark-800/80 via-dark-900/80 to-dark-950/80 p-2 shadow-2xl shadow-black/30">
-              <div style={{ height: '600px', position: 'relative' }}>
-                <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} items={certificateItems} />
+              <div style={{ height: '600px', position: 'relative', width: '100%' }}>
+                {isActive && (
+                  <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} items={certificateItems} />
+                )}
               </div>
             </div>
           </>
