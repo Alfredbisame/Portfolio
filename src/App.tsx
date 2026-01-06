@@ -6,7 +6,7 @@ import AboutSection from './components/AboutSection';
 import PortfolioSection from './components/PortfolioSection';
 import ServicesSection from './components/ServicesSection';
 import ContactSection from './components/ContactSection';
-import { skills, experiences, projects, services } from './data/portfolioData';
+import { certificateGalleryItems, experiences, projects, services, skills } from './data/portfolioData';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -23,6 +23,7 @@ function App() {
         isActive={activeTab === 'about'} 
         skills={skills} 
         experiences={experiences} 
+        certificateItems={certificateGalleryItems}
       />
       
       <PortfolioSection 

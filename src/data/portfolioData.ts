@@ -24,6 +24,11 @@ export interface Service {
   desc: string;
 }
 
+export interface GalleryItem {
+  image: string;
+  text: string;
+}
+
 // Skills based on resume and expertise
 export const skills: Skill[] = [
   { name: 'Flutter & Dart', level: 95 },
@@ -223,3 +228,70 @@ export const services: Service[] = [
   },
 ];
 
+// Certificate gallery items 
+export const certificateGalleryItems: GalleryItem[] = [
+  {
+    image: 'https://i.postimg.cc/C5FKFkZn/Android-Cert.jpg',
+    text: 'Cloud Architecture',
+  },
+  {
+    image: 'https://i.postimg.cc/4NjTPpJ2/CICD-Cert.png',
+    text: 'Backend Engineering',
+  },
+  {
+    image: 'https://i.postimg.cc/cLPKYFkQ/AGI-Cert.jpg',
+    text: 'Frontend Specialist',
+  },
+  {
+    image: 'https://i.postimg.cc/MZspVsvb/Docker-Cert.jpg',
+    text: 'Mobile Development',
+  },
+  {
+    image: 'https://i.postimg.cc/TPG6ZmKd/Flutter-Cert.jpg',
+    text: 'Flutter Development',
+  },
+  {
+    image: 'https://i.postimg.cc/PxjQbXVz/Ai-Saas-cert.png',
+    text: 'Flutter Development',
+  },
+  {
+    image: 'https://i.postimg.cc/26kB8VXK/Python.jpg',
+    text: 'Flutter Development',
+  },
+  {
+    image: 'https://i.postimg.cc/WbFq3RXD/aws-cert.jpg',
+    text: 'Flutter Development',
+  },
+  {
+    image: 'https://i.postimg.cc/tCx7b34H/Flutter-REST-Cert.png',
+    text: 'Flutter Development',
+  },
+  {
+    image: 'https://i.postimg.cc/N0JrFgq5/Chat-App-Flutter.png',
+    text: 'Flutter Development',
+  },
+  {
+    image: 'https://i.postimg.cc/N0JrFgq5/Chat-App-Flutter.png',
+    text: 'Flutter Development',
+  },
+  {
+    image: 'https://i.postimg.cc/Y90yVfwt/Flutter-Admob.png',
+    text: 'Flutter Development',
+  },
+  {
+    image: 'https://i.postimg.cc/85fxcBXH/PHP-Cert.jpg',
+    text: 'PHP Development',
+  },
+  {
+    image: 'https://i.postimg.cc/L8mqVqm1/Node-js.jpg',
+    text: 'PHP Development',
+  },
+  {
+    image: 'https://i.postimg.cc/SKcyRMT6/Flutter-Get-X.png',
+    text: 'PHP Development',
+  },
+  {
+    image: 'https://i.postimg.cc/YSXwhzN8/Next-js-cert.jpg',
+    text: 'PHP Development',
+  },
+];

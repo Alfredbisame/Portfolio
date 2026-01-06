@@ -1,9 +1,11 @@
 import React from 'react';
 import SkillBar from './SkillBar';
 import ExperienceCard from './ExperienceCard';
+import CircularGallery from './CircularGallery';
 import { GraduationCap, Heart } from 'lucide-react';
 import RotatingText from './RotatingText';
 import DecryptedText from './DecryptedText';
+import type { GalleryItem } from '../data/portfolioData';
 
 interface Skill {
   name: string;
@@ -28,9 +30,16 @@ interface AboutSectionProps {
   skills: Skill[];
   experiences: Experience[];
   education?: Education[];
+  certificateItems?: GalleryItem[];
 }
 
-const AboutSection: React.FC<AboutSectionProps> = ({ isActive, skills, experiences, education = [] }) => {
+const AboutSection: React.FC<AboutSectionProps> = ({
+  isActive,
+  skills,
+  experiences,
+  education = [],
+  certificateItems = [],
+}) => {
   return (
     <section
       className={`min-h-screen flex items-center justify-center p-8 transition-opacity duration-700 ease-in-out ${
@@ -109,6 +118,17 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isActive, skills, experienc
                 </li>
               ))}
             </ul>
+          </>
+        )}
+
+        {certificateItems.length > 0 && (
+          <>
+            <h3 className="text-2xl font-semibold mb-6">Project Certificates Gallery</h3>
+            <div className="mb-16 rounded-3xl border border-white/10 bg-gradient-to-br from-dark-800/80 via-dark-900/80 to-dark-950/80 p-2 shadow-2xl shadow-black/30">
+              <div style={{ height: '600px', position: 'relative' }}>
+                <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} items={certificateItems} />
+              </div>
+            </div>
           </>
         )}
 
